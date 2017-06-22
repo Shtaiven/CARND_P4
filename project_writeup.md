@@ -22,7 +22,8 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/color_grad_thresh.jpg "Binary Example"
 [image4]: ./output_images/perspective_transform.jpg "Warp Example"
 [image5]: ./output_images/find_lane_lines.jpg "Fit Visual"
-[image6]: ./output_images/full_pipeline.jpg "Output"
+[image6]: ./output_images/draw_lane_info.jpg "Radius of Curvature and Distance from Center"
+[image7]: ./output_images/full_pipeline.jpg "Output"
 [video1]: ./draw_lanes.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -106,11 +107,15 @@ car_center_px = out_img.shape[1]/2
 dist_from_center = (lane_center_px-car_center_px)*meter_conversion # Positive: car left of center, Negative: car right of center
 ```
 
+These calculations were included into the function `draw_lane_info()`, which uses `cv2.putText()` to draw this infomation onto the top left corner of the image. The upper left value is the left lane radius of curvature, the upper right value is the right lane radius of curvature, and the bottom value is the distance left of center. An example can be seen below:
+
+![alt text][image6]
+
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 The full lane finding pipeline was tested in the 9th cell of the notebook using the function `draw_lanes()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image7]
 
 ---
 
